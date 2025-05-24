@@ -1,4 +1,4 @@
-/* Reset */
+/* === RESET & BASE === */
 * {
   margin: 0;
   padding: 0;
@@ -10,15 +10,17 @@ body {
   background: linear-gradient(to bottom, #e8f0ff, #ffffff);
   color: #333;
   line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
 }
 
-/* Header */
+/* === HEADER === */
 header {
   background: linear-gradient(135deg, #0055a4, #00aaff);
   color: white;
   padding: 2rem 1rem;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
 header h1 {
@@ -30,7 +32,33 @@ header p {
   font-size: 1.2rem;
 }
 
-/* Navigation */
+/* === DARK MODE TOGGLE BUTTON === */
+.mode-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #ffffff33;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 1000;
+}
+
+.mode-btn:hover {
+  background: #ffffff55;
+}
+
+body.dark-mode .mode-btn {
+  background: #333;
+  color: #eee;
+  border-color: #eee;
+}
+
+/* === NAVIGATION === */
 nav ul {
   display: flex;
   flex-wrap: wrap;
@@ -57,21 +85,32 @@ nav ul li a:hover {
   background-color: #0077cc;
 }
 
-/* Main */
+nav ul li a.active {
+  background-color: #0077cc;
+  color: #fff;
+  pointer-events: none;
+}
+
+/* === MAIN CONTENT === */
 main {
   padding: 2rem;
   max-width: 1000px;
   margin: auto;
-  animation: fadeIn 1s ease-in-out;
 }
 
-section {
+/* === Transparent Card Style === */
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2rem;
+  border-radius: 10px;
   margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background 0.3s, color 0.3s;
 }
 
 h2, h3 {
-  color: #399cf9;
-  margin-bottom: 0.5rem;
+  color: #0055a4;
+  margin-bottom: 1rem;
 }
 
 ul {
@@ -79,138 +118,109 @@ ul {
   margin-bottom: 1rem;
 }
 
-ul li {
-  margin-bottom: 0.5rem;
-}
-
-/* Cards */
-.card {
-  background: rgba(255, 255, 255, 0.342);
-  padding: 1.5rem;
-  margin: 1.5rem 0;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: scale(1.02);
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #004080;
-  color: white;
-  margin-top: 2rem;
-}
-
-/* Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  header h1 {
-    font-size: 2rem;
-  }
-
-  main {
-    padding: 1rem;
-  }
-}
-
-    body {
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Boeing 737.PNG') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-    }
- 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f8f9fa;
-    }
-
-    .form-container {
-      max-width: 800px;
-      margin: 50px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #777;
-    }
-    body {
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('istockphoto-1776557168-612x612.webp') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-    }
-  /* ===== Feedback Form Styling ===== */
-form {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-form input[type="text"],
-form input[type="email"],
-form textarea {
+form input, form textarea, form select {
   width: 100%;
   padding: 10px;
+  margin: 0.5rem 0 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-sizing: border-box;
-  font-size: 16px;
-  margin-bottom: 15px;
-}
-
-form label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 5px;
 }
 
 form input[type="submit"] {
-  background-color: #003366; /* Deep blue */
+  background-color: #004080;
   color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
   transition: background-color 0.3s ease;
+  font-weight: bold;
 }
 
 form input[type="submit"]:hover {
-  background-color: #005599;
+  background-color: #0077cc;
 }
-/* Mobile responsiveness */
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #777;
+  background-color: #f2f2f2;
+}
+
+/* === Footer in Dark Mode === */
+body.dark-mode footer {
+  background-color: #1e1e1e;
+  color: #bbb;
+}
+
+
+/* === DARK MODE === */
+body.dark-mode {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode header {
+  background: #1e1e1e;
+}
+
+body.dark-mode nav ul {
+  background-color: #222;
+}
+
+body.dark-mode nav ul li a {
+  color: #ccc;
+}
+
+body.dark-mode .card {
+  background: rgba(30, 30, 30, 0.85);
+  color: #ccc;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: #333;
+  color: #eee;
+  border: 1px solid #555;
+}
+
+body.dark-mode input[type="submit"] {
+  background-color: #555;
+  color: #eee;
+}
+
+body.dark-mode input[type="submit"]:hover {
+  background-color: #777;
+}
+
+/* === HAMBURGER MENU === */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  padding: 0 1rem;
+  text-align: right;
+}
+
+/* === MOBILE RESPONSIVE === */
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
   nav ul {
+    display: none;
     flex-direction: column;
     align-items: center;
+    background-color: #004080;
+    padding: 1rem;
+  }
+
+  nav ul.show {
+    display: flex;
   }
 
   nav ul li {
@@ -218,10 +228,9 @@ form input[type="submit"]:hover {
   }
 
   .card {
-    margin: 1rem;
-    padding: 1rem;
     width: 90%;
     font-size: 1rem;
+    margin: 1rem auto;
   }
 
   img {
@@ -230,5 +239,94 @@ form input[type="submit"]:hover {
   }
 }
 
+/* === Background for Home Page === */
+body.bg-home {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+              url("Boeing\ 737.PNG") no-repeat center center fixed;
+  background-size: cover;
+}
+/* === Background for About Page === */
+body.bg-about {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+              url("clouds.png") no-repeat center center fixed;
+  background-size: cover;
+}
+/* === Background for Flights Page === */
+body.bg-flights {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+              url("Embraer\ 1710.PNG") no-repeat center center fixed;
+  background-size: cover;
+}
+/* === Background for Book Page === */
+body.bg-book {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+              url("Boeing\ 737.PNG") no-repeat center center fixed;
+  background-size: cover;
+}
+/* === Background for Contact Page === */
+body.bg-contact {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+              url("inside of a plane.png") no-repeat center center fixed;
+  background-size: cover;
+}
+/* === Background for Destinations Page === */
+body.bg-destinations {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+              url("interior.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+/* === Background for Private Jets Page === */
+body.bg-privatejets {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+              url("jet\ int.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+/* === Background for Aircraft Classes Page === */
+body.bg-aircraft {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+              url("plane.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+/* === Confirmation Card Styling === */
+.confirmation-card {
+  background: rgba(255, 255, 255, 0.95);
+  max-width: 600px;
+  margin: 5rem auto;
+  padding: 3rem 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
 
-  
+/* === Return Button === */
+.return-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.7rem 1.5rem;
+  background-color: #0077cc;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.return-btn:hover {
+  background-color: #005fa3;
+}
+
+/* === Dark Mode Support for Confirmation Card === */
+body.dark-mode .confirmation-card {
+  background-color: rgba(30, 30, 30, 0.95);
+  color: #eee;
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .return-btn {
+  background-color: #555;
+  color: #eee;
+}
+
+body.dark-mode .return-btn:hover {
+  background-color: #777;
+}
