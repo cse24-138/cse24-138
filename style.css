@@ -272,7 +272,7 @@ body.bg-contact {
 /* === Background for Destinations Page === */
 body.bg-destinations {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-              url("destinations.jpg") no-repeat center center fixed;
+              url("destinationjet.jpg") no-repeat center center fixed;
   background-size: cover;
 }
 /* === Background for Private Jets Page === */
