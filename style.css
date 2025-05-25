@@ -248,7 +248,7 @@ body.bg-home {
 /* === Background for About Page === */
 body.bg-about {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-              url("clouds.png") no-repeat center center fixed;
+              url("about.png") no-repeat center center fixed;
   background-size: cover;
 }
 /* === Background for Flights Page === */
